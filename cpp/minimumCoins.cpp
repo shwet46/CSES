@@ -9,16 +9,16 @@ int main() {
         cin >> coin;
     }
 
-    vector<int> dp(x + 1, x + 1); 
+    vector<int> dp(x+1, x+1);
     dp[0] = 0;
 
-    for (int coin : coins) {
-        for (int amount = coin; amount <= x; amount++) {
-            dp[amount] = min(dp[amount], dp[amount - coin] + 1);
+    for(auto coin : coins){
+        for(int i = coin; i <= x; i++){
+            dp[i] = min(dp[i], dp[i - coin] + 1);
         }
     }
 
-    cout << (dp[x] > x ? -1 : dp[x]) << endl;
+    cout << (dp[x] > x ? -1 : dp[x]) << "\n";
 
     return 0;
 }

@@ -1,0 +1,1 @@
+{"name":"Local: coinpiles","url":"c:\\Users\\Acer\\Documents\\GitHub\\CSES\\cpp\\coinpiles.cpp","tests":[{"id":1759824410854,"input":"3\n2 1\n2 2\n3 3","output":"YES\nNO\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Acer\\Documents\\GitHub\\CSES\\cpp\\coinpiles.cpp","group":"local","local":true}
