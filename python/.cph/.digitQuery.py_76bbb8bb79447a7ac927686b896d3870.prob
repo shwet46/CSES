@@ -1,0 +1,1 @@
+{"name":"Local: digitQuery","url":"c:\\Users\\Acer\\Documents\\GitHub\\CSES\\python\\digitQuery.py","tests":[{"id":1761287608121,"input":"3\n7\n19\n12","output":"7\n4\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Acer\\Documents\\GitHub\\CSES\\python\\digitQuery.py","group":"local","local":true}

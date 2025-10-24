@@ -6,22 +6,23 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    ll n;
-    cin>>n;
+    int n;
+    cin >> n;
 
-    vector<ll> dp(n+1,1e9);
-    dp[0]=0;
-
-    for(int i = 1; i <= n; i++){
-        ll temp = i;
-        while(temp){
-            ll d = temp % 10;
-            dp[i] = min(dp[i], 1 + dp[i - d]);
-            temp /= 10;
+    int steps = 0;
+    while (n) {
+        int number = n;
+        int max_digit = 0;
+        while (number) {
+            int digit = number % 10;
+            max_digit = max(max_digit, digit);
+            number /= 10;
         }
+        n -= max_digit;
+        steps++;
     }
 
-    cout << dp[n] << endl;
+    cout << steps << "\n";
   
     return 0;
 }

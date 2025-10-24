@@ -1,0 +1,1 @@
+{"name":"Local: sumOfDivisors","url":"c:\\Users\\Acer\\Documents\\GitHub\\CSES\\cpp\\sumOfDivisors.cpp","tests":[{"id":1760412969424,"input":"5","output":"21"},{"id":1760412974385,"input":"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Acer\\Documents\\GitHub\\CSES\\cpp\\sumOfDivisors.cpp","group":"local","local":true}
