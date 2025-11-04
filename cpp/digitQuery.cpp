@@ -4,35 +4,21 @@ typedef long long ll;
 #define mod 1000000007
  
 void solve() {
-    vector<ll> pref(1, 0);
-    for (int i = 0; i < 18; i++) {
-        pref.push_back((i + 1) * (9LL * (ll)pow(10, i)) + pref.back());
-    }
+   ll k;
+   cin>>k;
+   k--;
+   ll a = 1;
+   ll b = 9;
+   ll c = 1;
+   while(k >= (b-a+1) * c){
+        k -= (b-a+1) * c;
+        a *= 10;
+        b = b * 10 + 9;
+        c++;
+   }
 
-    ll k;
-    cin >> k;
-
-    int digits = 0;
-    for (int i = 0; i < (int)pref.size(); i++) {
-        if (pref[i] >= k) {
-            digits = i;
-            k -= pref[i - 1];
-            break;
-        }
-    }
-
-    ll num = k / digits;
-    ll digit = k % digits;
-
-    if (digit == 0) {
-        digit = digits;
-    } else {
-        num += 1;
-    }
-
-    ll number = (ll)pow(10, digits - 1) + num - 1;
-    string s = to_string(number);
-    cout << s[digit - 1] << "\n";
+   ll x = a+(k/c);
+   cout << to_string(x)[k%c] - '0' << "\n";
 }
  
 int main() {
@@ -47,3 +33,11 @@ int main() {
  
     return 0;
 }
+
+/* 
+
+          /\_/\     
+         (='.'=)    
+         (")_(")        
+
+*/
