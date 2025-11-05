@@ -11,9 +11,9 @@ void solve() {
     int i = 0, j = n - 1, ans = 0;
 
     while (i <= j) {
-        if (p[i] + p[j] <= x) i++; // Pair lightest with heaviest
-        j--; // Heaviest always boards
-        ans++; // One gondola used
+        if (p[i] + p[j] <= x) i++;
+        j--;
+        ans++;
     }
 
     cout << ans << '\n';
