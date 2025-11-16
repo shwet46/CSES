@@ -69,6 +69,13 @@ This repository contains my solutions to the CSES Problem Set in multiple progra
 - [Prime Multiples](cpp/primeMultiples.cpp)
 - [Exponentiation](cpp/expo.cpp)
 - [Exponentiation II](cpp/expo2.cpp)
+- [Coprime Pairs](cpp/coprimePairs.cpp)
+- [Next Prime](cpp/nextPrime.cpp)
+
+---
+
+### String Algorithms
+- [Word Combinations](cpp/wordCombinations.cpp)
 
 ---
 

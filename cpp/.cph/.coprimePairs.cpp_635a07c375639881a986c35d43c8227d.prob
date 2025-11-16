@@ -1,0 +1,1 @@
+{"name":"Local: coprimePairs","url":"c:\\Users\\Acer\\Documents\\GitHub\\CSES\\cpp\\coprimePairs.cpp","tests":[{"id":1762432009721,"input":"8\n5 4 20 1 16 17 5 15","output":"19"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Acer\\Documents\\GitHub\\CSES\\cpp\\coprimePairs.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: editDistance","url":"c:\\Users\\Acer\\Documents\\GitHub\\CSES\\cpp\\editDistance.cpp","tests":[{"id":1762670690967,"input":"LOVE\nMOVIE","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Acer\\Documents\\GitHub\\CSES\\cpp\\editDistance.cpp","group":"local","local":true}
