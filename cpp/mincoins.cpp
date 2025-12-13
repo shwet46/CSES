@@ -15,20 +15,21 @@ int main() {
         cin >> c[j];
     }
 
-    vector<int> amount(x + 1);
-    amount[0] = 0;
+    vector<int> dp(x + 1, INF);
+    dp[0] = 0;
     for (int i = 1; i <= x; ++i) {
-        amount[i] = INF;
         for (int j = 0; j < n; ++j) {
             if (i - c[j] >= 0) {
-                amount[i] = min(amount[i], amount[i - c[j]] + 1);
+                dp[i] = min(dp[i], dp[i - c[j]] + 1);
             }
         }
     }
-
-    int answer = amount[x];
-    if (answer == INF) answer = -1;
-    cout << answer << "\n";
+    
+    if (dp[x] == INF) {
+        cout << -1 << "\n";
+    } else {
+        cout << dp[x] << "\n";
+    }
  
     return 0;
 }
