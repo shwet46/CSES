@@ -12,7 +12,7 @@ int main() {
     vector<int> dp(x+1);
     for(int i = 0; i < n; i++){
         for(int j = x; j >= h[i]; j--){
-            dp[j] = max(dp[j], dp[j - h[i]] + s[i]);
+            dp[j] = max(dp[j], dp[j-h[i]]+s[i]);
         }
     }
     

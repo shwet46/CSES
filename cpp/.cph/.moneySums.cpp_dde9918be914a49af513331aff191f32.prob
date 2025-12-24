@@ -1,0 +1,1 @@
+{"name":"Local: moneySums","url":"d:\\github\\CSES\\cpp\\moneySums.cpp","tests":[{"id":1765969358119,"input":"3\n3 5 7","output":"7\n3 5 7 8 10 12 15"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\github\\CSES\\cpp\\moneySums.cpp","group":"local","local":true}
