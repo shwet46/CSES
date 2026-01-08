@@ -23,3 +23,11 @@ int main(){
     cout<<dp[target]<<endl;
     return 0;
 }
+
+/* 
+
+          /\_/\        
+         (='.'=)    
+         (")_(")        
+
+*/

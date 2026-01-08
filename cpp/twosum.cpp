@@ -19,3 +19,11 @@ int main() {
 
 	cout << "IMPOSSIBLE" << endl;
 }
+
+/* 
+
+          /\_/\        
+         (='.'=)    
+         (")_(")        
+
+*/

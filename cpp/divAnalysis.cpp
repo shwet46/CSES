@@ -33,3 +33,11 @@ int main() {
 	cout << div_cnt << ' ' << div_sum << ' ' << div_prod;
 	return 0;
 }
+
+/* 
+
+		  /\_/\        
+		 (='.'=)    
+		 (")_(")        
+
+*/

@@ -47,3 +47,11 @@ int main(){
     for(int x:order) cout<<x<<" ";
     cout<<"\n";
 }
+
+/* 
+
+          /\_/\        
+         (='.'=)    
+         (")_(")        
+
+*/

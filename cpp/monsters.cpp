@@ -87,3 +87,11 @@ int main() {
 		cout << ans << endl;
 	} else cout << "NO" << endl;
 }
+
+/* 
+
+		  /\_/\        
+		 (='.'=)    
+		 (")_(")        
+
+*/

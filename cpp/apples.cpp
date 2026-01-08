@@ -20,3 +20,11 @@ int main() {
 
 	cout << recurse_apples(0, 0, 0) << endl;
 }
+
+/* 
+
+		  /\_/\        
+		 (='.'=)    
+		 (")_(")        
+
+*/

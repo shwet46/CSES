@@ -1,0 +1,1 @@
+{"name":"Local: readingBooks","url":"d:\\github\\CSES\\python\\readingBooks.py","tests":[{"id":1767608050719,"input":"3\n2 8 3","output":"16"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\github\\CSES\\python\\readingBooks.py","group":"local","local":true}
