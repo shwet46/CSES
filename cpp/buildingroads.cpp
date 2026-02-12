@@ -5,7 +5,7 @@ typedef long long ll;
 #define mod 1000000007
 
 const int N = 1e5 + 1;
-vector < int > adj[N], vis(N, false), ans;
+vector <int> adj[N], vis(N, false), ans;
 
 void dfs(int node) {
     vis[node] = true;

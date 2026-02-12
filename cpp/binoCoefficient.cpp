@@ -1,42 +1,55 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 typedef long long ll;
-#define M 1000000007
-#define N 1000005
- 
-int power(int a, int b) {
-    if (b == 0) return 1;
-    ll u = power(a, b / 2);
-    u = u * u % M;
-    if (b % 2 == 1) u = u * a % M;
-    return u;
+
+const int MOD = 1e9 + 7;
+const int MAXN = 1e6 + 5;
+
+ll fact[MAXN], invfact[MAXN];
+
+ll modpow(ll a, ll b) {
+    ll res = 1;
+    while (b > 0) {
+        if (b & 1) res = res * a % MOD;
+        a = a * a % MOD;
+        b >>= 1;
+    }
+    return res;
 }
 
-int inv(int x) {
-    return power(x, M - 2);
+void precompute() {
+    fact[0] = 1;
+    for (int i = 1; i < MAXN; i++) {
+        fact[i] = fact[i - 1] * i % MOD;
+    }
+
+    invfact[MAXN - 1] = modpow(fact[MAXN - 1], MOD - 2);
+    for (int i = MAXN - 2; i >= 0; i--) {
+        invfact[i] = invfact[i + 1] * (i + 1) % MOD;
+    }
 }
 
-ll fac[N + 1];
 
-int ncr(int a, int b) {
-    return fac[a] * inv(fac[b] * fac[a - b] % M) % M;
+ll ncr(int n, int r) {
+    if (r < 0 || r > n) return 0;
+    return fact[n] * invfact[r] % MOD * invfact[n - r] % MOD;
 }
- 
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    fac[0] = 1;
-    for (int i = 1; i <= N; i++) {
-        fac[i] = fac[i - 1] * i % M;
-    }
+
+    precompute();
 
     int n;
     cin >> n;
-    for (int i = 1; i <= n; i++) {
+    while (n--) {
         int a, b;
         cin >> a >> b;
         cout << ncr(a, b) << "\n";
     }
+    return 0;
 }
 
 /* 
