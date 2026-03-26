@@ -29,8 +29,8 @@ int main() {
 
 /* 
 
-          /\_/\          ♡ hi there ♡
-         (='.'=)    < meow ~ just coding >
+          /\_/\          
+         (='.'=)   
          (")_(")        
 
 */

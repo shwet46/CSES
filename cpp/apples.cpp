@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
+typedef long long ll;
 
 int n;
-vector<long long> weights;
+vector<ll> weights;
 
 ll recurse_apples(int index, ll sum1, ll sum2) {
     

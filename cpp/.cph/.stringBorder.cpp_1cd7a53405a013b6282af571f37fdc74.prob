@@ -1,0 +1,1 @@
+{"name":"Local: stringBorder","url":"d:\\github\\CSES\\cpp\\stringBorder.cpp","tests":[{"id":1773318671664,"input":"abcababcab","output":"2 5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\github\\CSES\\cpp\\stringBorder.cpp","group":"local","local":true}
