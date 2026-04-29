@@ -1,45 +1,32 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-typedef long long ll;
-#define mod 1000000007
-
+using ll = long long;
+const int M = 1000000007;
 const int N = 1000001;
-vector<vector<ll>> dp(N, vector<ll>(2, 0));
 
-void precompute() {
-    dp[1][0] = 1;
-    dp[1][1] = 1;
-
-    for (int i = 2; i < N; i++) {
-        dp[i][1] = (4 * dp[i - 1][1] + dp[i - 1][0]) % mod;
-        dp[i][0] = (dp[i - 1][1] + 2 * dp[i - 1][0]) % mod;
-    }
-}
-
-void solve() {
-    ll n;
-    cin >> n;
-    cout << (dp[n][0] + dp[n][1]) % mod << "\n";
-}
+ll towers[N][2];
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    towers[1][1] = 1;
+    towers[1][0] = 1;
 
-    precompute();
-
-    ll t;
-    cin >> t;
-    while (t--) {
-        solve();
+    for (int i = 2; i < N; ++i) {
+        towers[i][1] = (4 * towers[i - 1][1] + towers[i - 1][0]) % M;
+        towers[i][0] = (towers[i - 1][1] + 2 * towers[i - 1][0]) % M;
     }
 
-    return 0;
+    int t;
+    cin >> t;
+    for (int ti = 0; ti < t; ++ti) {
+        int n;
+        cin >> n;
+        cout << (towers[n][0] + towers[n][1]) % M << "\n";
+    }
 }
 
 /* 
 
-          /\_/\     
+          /\_/\        
          (='.'=)    
          (")_(")        
 

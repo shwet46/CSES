@@ -2,8 +2,20 @@
 using namespace std;
 typedef long long ll;
 typedef long double ld;
-#define mod 1000000007
- 
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef vector<int> vi;
+typedef vector<ll> vll;
+
+#define pb push_back
+#define mp make_pair
+#define all(x) (x).begin(), (x).end()
+#define sz(x) ((int)(x).size())
+#define rep(i, a, b) for (int i = a; i < b; i++)
+
+const int MOD = 1e9 + 7;
+const ll INF = 1e18;
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
@@ -12,44 +24,46 @@ int main() {
     cin >> n;
 
     vector<string> grid(n);
-    for (int i = 0; i < n; i++) {
-        cin >> grid[i];
-    }
+    rep(i, 0, n) cin >> grid[i];
 
-    cout << grid[0][0];
+    vector<pii> curr; 
+    curr.pb({0, 0});
 
-    vector<pair<int, int>> level;
-    level.emplace_back(0, 0);
+    string ans = "";
+    ans += grid[0][0];
 
-    for (int i = 0; i < 2 * n - 2; i++) {
-        vector<pair<int, int>> next_level;
-        char min_letter = 'Z' + 1;
+    vector<vector<bool>> vis(n, vector<bool>(n, false));
+    vis[0][0] = true;
 
-        auto update_next_level = [&](int y, int x) {
-            if (y < n && x < n) {
-                char letter = grid[y][x];
-                if (letter < min_letter) {
-                    next_level.clear();
-                    min_letter = letter;
-                }
-                if (letter == min_letter) {
-                    next_level.emplace_back(y, x);
-                }
-            }
-        };
+    for (int step = 1; step < 2 * n - 1; step++) {
 
-        for (auto [y, x] : level) {
-            update_next_level(y + 1, x);
-            update_next_level(y, x + 1);
+        char mn = 'Z';
+        vector<pii> next;
+
+        for (auto [i, j] : curr) {
+            if (i + 1 < n)
+                mn = min(mn, grid[i + 1][j]);
+            if (j + 1 < n)
+                mn = min(mn, grid[i][j + 1]);
         }
 
-        cout << min_letter;
+        for (auto [i, j] : curr) {
+            if (i + 1 < n && grid[i + 1][j] == mn && !vis[i + 1][j]) {
+                vis[i + 1][j] = true;
+                next.pb({i + 1, j});
+            }
+            if (j + 1 < n && grid[i][j + 1] == mn && !vis[i][j + 1]) {
+                vis[i][j + 1] = true;
+                next.pb({i, j + 1});
+            }
+        }
 
-        level = next_level;
-        level.erase(unique(level.begin(), level.end()), level.end());
+        ans += mn;
+        curr = next;
     }
-    cout << "\n";
- 
+
+    cout << ans << "\n";
+
     return 0;
 }
 

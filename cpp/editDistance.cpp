@@ -6,15 +6,15 @@ typedef long long ll;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
- 
-    string a,b;
+
+	string a,b;
 	cin>>a>>b;
-	int n=a.size();
-	int m=b.size();
+	int n = a.size();
+	int m = b.size();
 	vector<vector<int>> dp(n+1,vector<int>(m+1,0));
 
-	for(int i = 0; i <= n; i++) dp[i][0]=i;
-	for(int j = 0; j <= m; j++) dp[0][j]=j;
+	for(int i = 0; i <= n; i++) dp[i][0] = i;
+	for(int j = 0; j <= m; j++) dp[0][j] = j;
 
 	for(int i = 1; i <= n; i++){
 		for(int j = 1; j <= m; j++){
@@ -23,6 +23,8 @@ int main() {
 	}
 
 	cout<<dp[n][m]<<"\n";
+
+	
  
     return 0;
 }
