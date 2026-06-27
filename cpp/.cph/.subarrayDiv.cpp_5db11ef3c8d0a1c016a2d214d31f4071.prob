@@ -1,0 +1,1 @@
+{"name":"Local: subarrayDiv","url":"d:\\github\\CSES\\cpp\\subarrayDiv.cpp","tests":[{"id":1780390265860,"input":"5\n3 1 2 7 4","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\github\\CSES\\cpp\\subarrayDiv.cpp","group":"local","local":true}

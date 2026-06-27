@@ -15,31 +15,22 @@ typedef vector<ll> vll;
 
 const int MOD = 1e9 + 7;
 const ll INF = 1e18;
- 
+
  
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
  
-    int n, x;
-    cin >> n >> x;
-    map<ll, int> sums;
-    sums[0] = 1;
+    int n;
+    cin >> n;
     
-    ll sum = 0;
-    ll cnt = 0;
-    for(int i = 1; i <= n; i++) {
-        int a;
-        cin >> a;
-        sum += a;
-        cnt += sums[sum-x];
-        sums[sum]++;
+    rep(i, 0, n) {
+        rep(j, 0, n) {
+            cout << (i ^ j) << " ";
+        }
+        cout << "\n";
     }
-    
-    
-    cout << cnt <<"\n";
-    
-    
+
     return 0;
 }
 
@@ -50,3 +41,4 @@ int main() {
          (")_(")        
 
 */
+

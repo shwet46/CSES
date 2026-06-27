@@ -1,0 +1,1 @@
+{"name":"Local: sumOf3values","url":"d:\\github\\CSES\\cpp\\sumOf3values.cpp","tests":[{"id":1780152085417,"input":"4 8\n2 7 5 1","output":"4 1 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\github\\CSES\\cpp\\sumOf3values.cpp","group":"local","local":true}

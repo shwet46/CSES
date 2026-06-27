@@ -16,36 +16,37 @@ typedef vector<ll> vll;
 const int MOD = 1e9 + 7;
 const ll INF = 1e18;
  
+
  
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
- 
-    int n,x;
-    cin>>n>>x;
+    
+    int n, x;
+    cin >> n >> x;
     vi a(n);
-    rep(i,0,n) cin>>a[i];
-
+    rep(i, 0, n) cin >> a[i];
+    
     int left = 0;
     int right = 0;
     int sum = a[0];
-    int count = 0;
-
+    int cnt = 0;
     
-    while (left < n) {
-        while (sum < x && right + 1 < n) {
+    while(left < n){
+        while(sum < x && right + 1 < n){
             right++;
             sum += a[right];
         }
-        if (sum == x) {
-            count++;
+        if(sum == x){
+            cnt++;
         }
         sum -= a[left];
         left++;
     }
-
-    cout << count << "\n";
-
+    
+    cout << cnt <<"\n";
+ 
+    
     return 0;
 }
 

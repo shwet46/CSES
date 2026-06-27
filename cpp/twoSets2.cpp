@@ -1,26 +1,49 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+typedef long long ll;
+typedef long double ld;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef vector<int> vi;
+typedef vector<ll> vll;
 
-long long mod = 1000000007;
-long long dp[70001];
+#define pb push_back
+#define mp make_pair
+#define all(x) (x).begin(), (x).end()
+#define sz(x) ((int)(x).size())
+#define rep(i, a, b) for (int i = a; i < b; i++)
 
-int main(){
-    int n; cin>>n;
-    long long sum = (1ll*n*(n+1))/2;
-    if(sum%2){
-        cout<<0<<endl;
+const int MOD = 1e9 + 7;
+const ll INF = 1e18;
+const int N = 500 * 501 / 4;
+const int M = 1000000007;
+
+int sets[N + 1];
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int n;
+    cin >> n;
+
+    int total = n*(n+1)/2;
+    if(total % 2 != 0){
+        cout << 0 <<"\n";
         return 0;
     }
-    long long target = sum/2;
 
-    dp[0]=1;
-    for(int i=1;i<n;i++){ 
-        for(int j=target;j>=i;j--){
-            dp[j] += dp[j-i];
-            dp[j]%=mod;
+    int half = total / 2;
+    sets[0] = 1;
+    rep(x, 1, n){
+        for(int s = half; s - x >= 0; --s){
+            sets[s] = (sets[s] + sets[s - x]) % M;
         }
     }
-    cout<<dp[target]<<endl;
+
+    cout << sets[half] <<"\n";
+ 
+    
     return 0;
 }
 

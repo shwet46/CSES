@@ -15,30 +15,31 @@ typedef vector<ll> vll;
 
 const int MOD = 1e9 + 7;
 const ll INF = 1e18;
+ 
 
+ 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
  
     int n;
     cin >> n;
-
     vi sums(n);
     sums[0] = 1;
 
     ll sum = 0;
-    ll count = 0;
-    for (int i = 1; i <= n; i++) {
+    ll cnt = 0;
+    for(int i = 1; i <= n; i++){
         int a;
         cin >> a;
         sum += a;
         sum = (sum % n + n) % n;
-        count += sums[sum];
+        cnt += sums[sum];
         sums[sum]++;
     }
-
-    cout << count << "\n";
-
+ 
+    cout << cnt << "\n";
+    
     return 0;
 }
 
