@@ -1,36 +1,44 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-#define INF 1e9
+typedef long double ld;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef vector<int> vi;
+typedef vector<ll> vll;
+
+#define pb push_back
+#define mp make_pair
+#define all(x) (x).begin(), (x).end()
+#define sz(x) ((int)(x).size())
+#define rep(i, a, b) for (int i = a; i < b; i++)
+
+const int MOD = 1e9 + 7;
+const ll INF = 1e9;
+ 
+
  
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
- 
+    
     int n, x;
     cin >> n >> x;
-
-    vector<int> c(n);
-    for (int j = 0; j < n; ++j) {
-        cin >> c[j];
-    }
-
-    vector<int> dp(x + 1, INF);
-    dp[0] = 0;
-    for (int i = 1; i <= x; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (i - c[j] >= 0) {
-                dp[i] = min(dp[i], dp[i - c[j]] + 1);
+    vi coins(n);
+    rep(i, 0, n) cin >> coins[i];
+    vi amt(x+1, INF);
+    amt[0] = 0;
+    for(int i = 1; i <= x; i++){
+        for(int j = 0; j < n; j++){
+            if(i - coins[j] >= 0){
+                amt[i] = min(amt[i], amt[i-coins[j]] + 1);
             }
         }
     }
     
-    if (dp[x] == INF) {
-        cout << -1 << "\n";
-    } else {
-        cout << dp[x] << "\n";
-    }
- 
+    if(amt[x] == INF) cout << -1 << "\n";
+    else cout << amt[x] << "\n";
+    
     return 0;
 }
 

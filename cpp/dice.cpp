@@ -16,26 +16,29 @@ typedef vector<ll> vll;
 const int MOD = 1e9 + 7;
 const ll INF = 1e18;
  
+void solve() {
+   
+}
  
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
-    int n;
+    
+    ll n;
     cin >> n;
     vll ways(n+1);
     ways[0] = 1;
-
-    rep(i, 1, n+1){
-        ways[i] = 0;
-        rep(v, 1, 6+1){
-            if(i-v >= 0) ways[i] += ways[i-v];
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= 6; j++){
+            if(i-j >= 0){
+                ways[i] += ways[i-j];
+                ways[i] %= MOD;
+            }
         }
-        ways[i] %= MOD;
     }
- 
+
     cout << ways[n] << "\n";
-     
+   
     return 0;
 }
 

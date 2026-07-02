@@ -20,22 +20,22 @@ const ll INF = 1e18;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
-    int n,x;
+ 
+    int n, x;
     cin >> n >> x;
-    vi h(n), s(n);
+    vi h(n);
+    vi s(n);
     rep(i, 0, n) cin >> h[i];
     rep(i, 0, n) cin >> s[i];
-    
-    vi total(x+1);
-    rep(i, 0, n){
+
+    vi total(x + 1, 0);
+    for(int i = 0; i < n; i++){
         for(int j = x; j >= h[i]; j--){
-            total[j] = max(total[j], s[i] + total[j-h[i]]);
+            total[j] = max(total[j], total[j - h[i]] + s[i]);
         }
     }
-    
-    cout << total[x] << "\n";
- 
+
+    cout << total[x] <<"\n";
     
     return 0;
 }

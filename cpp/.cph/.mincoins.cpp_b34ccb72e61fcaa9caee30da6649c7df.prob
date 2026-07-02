@@ -1,0 +1,1 @@
+{"name":"Local: mincoins","url":"d:\\github\\CSES\\cpp\\mincoins.cpp","tests":[{"id":1782654752049,"input":"3 11\n1 5 7","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\github\\CSES\\cpp\\mincoins.cpp","group":"local","local":true}
