@@ -1,0 +1,1 @@
+{"name":"Local: towers","url":"d:\\github\\CSES\\cpp\\towers.cpp","tests":[{"id":1786256986483,"input":"5\n3 8 2 1 5","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\github\\CSES\\cpp\\towers.cpp","group":"local","local":true}

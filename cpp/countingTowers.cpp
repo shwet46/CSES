@@ -15,29 +15,30 @@ typedef vector<ll> vll;
 
 const int MOD = 1e9 + 7;
 const ll INF = 1e18;
-const int N = 1000001;
  
-ll towers[N][2];
+const int N = 1000001;
+
+ll tower[N][2];
  
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    towers[1][1] = 1;
-    towers[1][0] = 1;
-
-    for (int i = 2; i < N; ++i) {
-        towers[i][1] = (4 * towers[i - 1][1] + towers[i - 1][0]) % MOD;
-        towers[i][0] = (towers[i - 1][1] + 2 * towers[i - 1][0]) % MOD;
+    tower[1][1] = 1;
+    tower[1][0] = 1;
+    for(int i = 2; i < N; i++){
+        tower[i][1] = (4 * tower[i-1][1] + tower[i-1][0]) % MOD;
+        tower[i][0] = (tower[i-1][1] + 2 * tower[i-1][0]) % MOD;
     }
- 
+    
     ll t;
     cin >> t;
-    while (t--){
+    while(t--){
         int n;
         cin >> n;
-        cout << (towers[n][0] + towers[n][1]) % MOD << "\n";
+        cout<<(tower[n][0] + tower[n][1]) % MOD <<"\n";
     }
+ 
     
     return 0;
 }

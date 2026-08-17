@@ -1,45 +1,58 @@
-#include<bits/stdc++.h>
-
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-#define mod 1000000007
+typedef long double ld;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef vector<int> vi;
+typedef vector<ll> vll;
 
-const int N = 1e5 + 1;
-vector <int> adj[N], vis(N, false), ans;
+#define pb push_back
+#define mp make_pair
+#define all(x) (x).begin(), (x).end()
+#define sz(x) ((int)(x).size())
+#define rep(i, a, b) for (int i = a; i < b; i++)
 
-void dfs(int node) {
+const int MOD = 1e9 + 7;
+const ll INF = 1e18;
+ 
+const int N = 1e5+1;
+vi adj[N], vis(N, false), ans;
+
+void dfs(int node){
     vis[node] = true;
-    for (auto & v: adj[node])
-        if (!vis[v]) dfs(v);
+    for(auto v : adj[node]){
+        if(!vis[v]){
+            dfs(v);
+        }
+    }
 }
-
+ 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
+    
     int n, m;
     cin >> n >> m;
-
-    while (m--) {
-        int x, y;
-        cin >> x >> y;
-        adj[x].push_back(y);
-        adj[y].push_back(x);
+    while(m--){
+        int u, v;
+        cin >> u >> v;
+        adj[u].pb(v);
+        adj[v].pb(u);
     }
 
-    for (int i = 1; i <= n; i++) {
-        if (!vis[i]) {
-            ans.push_back(i);
+    for(int i = 1; i <= n; i++){
+        if(!vis[i]){
+            ans.pb(i);
             dfs(i);
         }
     }
 
-    cout << ans.size() - 1 << endl;
-
-    for (int i = 1; i < ans.size(); i++) {
-        cout << ans[i - 1] << " " << ans[i] << endl;
+    cout << sz(ans)-1 << "\n";
+    for(int i = 1; i < sz(ans); i++){
+        cout << ans[i-1] << " " << ans[i] << "\n";
     }
-
+    
     return 0;
 }
 

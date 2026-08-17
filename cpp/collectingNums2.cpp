@@ -1,20 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-typedef long double ld;
-typedef pair<int, int> pii;
-typedef pair<ll, ll> pll;
-typedef vector<int> vi;
-typedef vector<ll> vll;
-
-#define pb push_back
-#define mp make_pair
-#define all(x) (x).begin(), (x).end()
-#define sz(x) ((int)(x).size())
-#define rep(i, a, b) for (int i = a; i < b; i++)
-
-const int MOD = 1e9 + 7;
-const ll INF = 1e18;
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -23,53 +8,52 @@ int main() {
     int n, m;
     cin >> n >> m;
 
-    vi x(n + 1), pos(n + 1);
+    vector<int> arr(n + 1);
+    vector<int> pos(n + 1);
+
     for (int i = 1; i <= n; i++) {
-        cin >> x[i];
-        pos[x[i]] = i;
+        cin >> arr[i];
+        pos[arr[i]] = i;
     }
 
     int rounds = 1;
-    for (int i = 2; i <= n; i++) {
-        if (pos[i] < pos[i - 1]) rounds++;
+    for (int x = 1; x < n; x++) {
+        if (pos[x + 1] < pos[x]) {
+            rounds++;
+        }
     }
 
-    auto adjust = [&](int k, int delta) {
-        if (k >= 1 && k <= n) {
-            if (pos[k - 1] > pos[k]) rounds += delta;
-        }
-    };
-
     while (m--) {
-        int a, b;
-        cin >> a >> b;
+        int i, j;
+        cin >> i >> j;
 
-        int va = x[a], vb = x[b];
+        int u = arr[i];
+        int v = arr[j];
 
+        set<pair<int, int>> affected_pairs;
+        if (u - 1 >= 1) affected_pairs.insert({u - 1, u});
+        if (u + 1 <= n) affected_pairs.insert({u, u + 1});
+        if (v - 1 >= 1) affected_pairs.insert({v - 1, v});
+        if (v + 1 <= n) affected_pairs.insert({v, v + 1});
 
-        adjust(va, -1);
-        adjust(vb, -1);
-        if (va + 1 != vb) adjust(va + 1, -1);
-        if (vb + 1 != va) adjust(vb + 1, -1);
+        for (auto p : affected_pairs) {
+            if (pos[p.second] < pos[p.first]) {
+                rounds--;
+            }
+        }
 
-        swap(x[a], x[b]);
-        pos[va] = b;
-        pos[vb] = a;
+        swap(arr[i], arr[j]);
+        pos[u] = j;
+        pos[v] = i;
 
-
-        adjust(va, +1);
-        adjust(vb, +1);
-        if (va + 1 != vb) adjust(va + 1, +1);
-        if (vb + 1 != va) adjust(vb + 1, +1);
+        for (auto p : affected_pairs) {
+            if (pos[p.second] < pos[p.first]) {
+                rounds++;
+            }
+        }
 
         cout << rounds << "\n";
     }
 
     return 0;
 }
-
-/* 
-          /\_/\
-         (='.'=)
-         (")_(")
-*/

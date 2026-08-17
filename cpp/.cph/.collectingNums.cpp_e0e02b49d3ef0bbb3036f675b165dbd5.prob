@@ -1,0 +1,1 @@
+{"name":"Local: collectingNums","url":"d:\\github\\CSES\\cpp\\collectingNums.cpp","tests":[{"id":1786124391712,"input":"5\n4 2 1 5 3","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\github\\CSES\\cpp\\collectingNums.cpp","group":"local","local":true}
