@@ -16,16 +16,17 @@ typedef vector<ll> vll;
 const int MOD = 1e9 + 7;
 const ll INF = 1e18;
  
-
  
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    int n,x;
+    int n, x;
     cin >> n >> x;
+    
     vector<pii> v;
-    rep(i, 1, n+1){
+    
+    for(int i = 1; i <= n; i++){
         int a;
         cin >> a;
         v.emplace_back(a, i);
@@ -33,25 +34,23 @@ int main() {
     
     sort(all(v));
     
-    rep(i, 0, n){
-        int y = x - v[i].first;
-        int a = i+1;
-        int b = n-1;
-        while(a < b){
-            int s = v[a].first + v[b].first;
-            if(s == y){
-                cout << v[i].second <<" " << v[a].second <<" " << v[b].second <<"\n";
+    for(int i = 0; i < n; i++){
+        int j = i+1;
+        int k = n-1;
+        while(j < k){
+            int sum = v[i].first + v[j].first + v[k].first;
+            if(sum == x){
+                cout << v[i].second <<" " << v[j].second <<" " << v[k].second<<"\n";
                 return 0;
-            }else if(s > y){
-                b--;
+            }else if(sum < x){
+                j++;
             }else{
-                a++;
+                k--;
             }
         }
     }
     
-    cout<<"IMPOSSIBLE\n";
- 
+    cout <<"IMPOSSIBLE\n";
     
     return 0;
 }

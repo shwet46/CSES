@@ -15,47 +15,46 @@ typedef vector<ll> vll;
 
 const int MOD = 1e9 + 7;
 const ll INF = 1e18;
+ 
 
+ 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
+ 
     int n;
     cin >> n;
-
-    vector<array<int,3>> events;
-    rep(i, 1, n + 1) {
+    vector<vector<int>> event;
+    for(int i = 1; i <= n; i++){
         int a, b;
         cin >> a >> b;
-        events.pb({a, 1, i});
-        events.pb({b, 2, i});
+        event.pb({a, 1, i});
+        event.pb({b, 2, i});
     }
 
-    sort(all(events));
+    sort(all(event));
 
-    vi free_rooms;          
-    vi assigned(n + 1);    
-    int total_rooms = 0;
-
-    for (auto &e : events) {
-        int type = e[1];
-        int id = e[2];
-
-        if (type == 1) {
-            if (free_rooms.empty()) {
-                total_rooms++;
-                free_rooms.pb(total_rooms);
+    vi room;
+    vi ans(n+1);
+    int c = 0;
+    
+    for(auto e: event){
+        if(e[1] == 1){
+            if(room.empty()){
+                c++;
+                room.pb(c);
             }
-            assigned[id] = free_rooms.back();
-            free_rooms.pop_back();
-        }else {
-            free_rooms.pb(assigned[id]);
+            ans[e[2]] = room.back();
+            room.pop_back();
+        }
+        if(e[1] == 2){
+            room.pb(ans[e[2]]);
         }
     }
 
-    cout << total_rooms << "\n";
-    rep(i, 1, n + 1) {
-        cout << assigned[i] << " ";
+    cout << c << "\n";
+    for(int i = 1; i <= n; i++){
+        cout << ans[i] << " ";
     }
     cout << "\n";
 
