@@ -16,51 +16,54 @@ typedef vector<ll> vll;
 const int MOD = 1e9 + 7;
 const ll INF = 1e18;
 
-const int M = 1000000007;
-const int N = 100001;
-
-int dp[N][105]; 
-
+bool valid(int x, int m){
+    return (x >= 0 && x <= m);
+}
+ 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
+ 
     int n, m;
     cin >> n >> m;
-    
-    vi a(n + 1);
-    rep(i, 1, n + 1) cin >> a[i];
-    
-    rep(j, 1, m + 1){
-        if(a[1] == 0 || a[1] == j){
-            dp[1][j] = 1;
+
+    vi a(n);
+    rep(i, 0, n) cin >> a[i];
+
+    vector<vector<int>> dp(n+1, vector<int>(m+1, 0));
+    for(int i = 1; i <= m; i++){
+        if(a[0] == i || a[0] == 0){
+            dp[1][i] = 1;
         }
     }
-    
-    rep(i, 2, n + 1){
-        rep(j, 1, m + 1){
-            if(a[i] == 0 || a[i] == j){
-                rep(k, -1, 2){
-                    if (j + k >= 1 && j + k <= m) {
-                        dp[i][j] = (dp[i][j] + dp[i - 1][j + k]) % MOD;
-                    }
-                }
+
+    for(int i = 2; i <= n; i++){
+        for(int k = 1; k <= m; k++){
+            if(a[i-1] != 0 && a[i-1] != k){
+                dp[i][k] = 0;
+                continue;
+            }
+            for(int p = k-1; p <= k+1; p++){
+                if(!valid(p, m)) continue;
+                dp[i][k] = (dp[i][k] + dp[i-1][p]) % MOD;
             }
         }
     }
-    
+
     int ans = 0;
-    rep(j, 1, m + 1){
-        ans = (ans + dp[n][j]) % MOD;
+    for(int i = 1; i <= m; i++){
+        ans = (ans+ dp[n][i]) % MOD;
     }
-    
-    cout << ans << "\n";
-   
+
+    cout << ans <<"\n";
+
     return 0;
 }
 
 /* 
+
           /\_/\        
          (='.'=)    
          (")_(")        
+
 */

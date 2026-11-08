@@ -19,22 +19,30 @@ const ll INF = 1e18;
 void solve() {
    int n, k;
    cin >> n >> k;
-   string s;
-   cin >> s;
-   int f = n/k;
-   int ans = 0;
-   rep(i, 0, f){
-        bool o = true;
-        rep(j, 0, k){
-            if (s[i*k + j] == '0') {
-                o = false;
-                break;
-            }
-        }
-        if (o) ans++;
+   vi a(n), b(n);
+   rep(i, 0, n) cin >> a[i];
+   rep(i, 0, n) cin >> b[i];
+
+
+   int ca = 0, cb = 0;
+   rep(i, 0, n){
+    if((a[i] & 1) == 0) ca++;
+    if((b[i] & 1) == 0) cb++;
    }
 
-   cout << ans << "\n";
+   if((k & 1) == 0){
+    if(ca <= cb){
+        cout << "YES\n";
+    }else{
+        cout << "NO\n";
+    }
+   }else{
+    if(ca >= cb){
+        cout << "YES\n";
+    }else{
+        cout << "NO\n";
+    }
+   }
 }
  
 int main() {

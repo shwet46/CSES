@@ -15,30 +15,30 @@ typedef vector<ll> vll;
 
 const int MOD = 1e9 + 7;
 const ll INF = 1e18;
- 
 
+ 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
+ 
     int n;
     cin >> n;
     int steps = 0;
 
     while(n){
-        int temp = n;
         int mx = 0;
-        while(temp){
-            int digit = temp % 10;
-            mx = max(mx, digit);
-            temp /= 10;
+        int t = n;
+        while(t){
+            int d = t % 10;
+            mx = max(mx, d);
+            t /= 10;
         }
         n -= mx;
         steps++;
     }
 
-    cout << steps << "\n";
- 
+    cout << steps <<"\n";
+
     return 0;
 }
 

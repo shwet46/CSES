@@ -15,33 +15,37 @@ typedef vector<ll> vll;
 
 const int MOD = 1e9 + 7;
 const ll INF = 1e18;
- 
 
+ 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
     int n;
     cin >> n;
-    vector<string> grid(n);
-    rep(i, 0, n) cin >> grid[i];
+    vector<string> g(n);
+    rep(i, 0, n) cin >> g[i];
 
-    vector<vector<int>> paths(n, vector<int>(n));
-    rep(i, 0, n){
-        rep(j, 0, n){
-            if(grid[i][j] == '*'){
-                paths[i][j] = 0;
+    vector<vector<int>> dp(n, vector<int>(n, 0));
+
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(g[i][j] == '*'){
+                dp[i][j] = 0;
             }else{
-                paths[i][j] = (i==0 & j==0);
-                if(i) paths[i][j] += paths[i-1][j];
-                if(j) paths[i][j] += paths[i][j-1];
-                paths[i][j] %= MOD;
+                if(i == 0 && j == 0){
+                    dp[i][j] = 1;
+
+                }
+                if(i) dp[i][j] += dp[i-1][j];
+                if(j) dp[i][j] += dp[i][j-1];
+                dp[i][j] %= MOD;
             }
         }
     }
 
-    cout << paths[n-1][n-1] << "\n";
- 
+    cout << dp[n-1][n-1] <<"\n";
+    
     return 0;
 }
 

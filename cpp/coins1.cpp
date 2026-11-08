@@ -15,29 +15,30 @@ typedef vector<ll> vll;
 
 const int MOD = 1e9 + 7;
 const ll INF = 1e18;
- 
+
  
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
+ 
     int n, x;
     cin >> n >> x;
-    vi c(n);
-    rep(i , 0, n) cin >> c[i];
-
-    vi ways(x+1);
-    ways[0] = 1;
-
-    rep(i , 1, x+1){
-        ways[i] = 0;
-        rep(j, 0, n){
-            if(i-c[j] >= 0) ways[i] = (ways[i] + ways[i-c[j]]) % MOD;
+    vi c(n+1);
+    rep(i, 1, n+1) cin >> c[i];
+    
+    vi dp(x+1, 0);
+    dp[0] = 1;
+    
+    for(int i = 1; i <= x; i++){
+        for(int j = 1; j <= n; j++){
+            if(c[j] <= i){
+                dp[i] = (dp[i] + dp[i - c[j]]) % MOD;
+            }
         }
     }
-
-    cout << ways[x] << "\n";
-     
+    
+    cout << dp[x] <<"\n";
+    
     return 0;
 }
 

@@ -16,26 +16,25 @@ typedef vector<ll> vll;
 const int MOD = 1e9 + 7;
 const ll INF = 1e18;
  
- 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
- 
+    
     int n, x;
     cin >> n >> x;
-    vi h(n);
-    vi s(n);
+    vi h(n), s(n);
     rep(i, 0, n) cin >> h[i];
-    rep(i, 0, n) cin >> s[i];
+    rep(j, 0, n) cin >> s[j];
 
-    vi total(x + 1, 0);
+    vi dp(x + 1);
+
     for(int i = 0; i < n; i++){
         for(int j = x; j >= h[i]; j--){
-            total[j] = max(total[j], total[j - h[i]] + s[i]);
+            dp[j] = max(dp[j], dp[j - h[i]] + s[i]);
         }
     }
-
-    cout << total[x] <<"\n";
+    
+    cout << dp[x] <<"\n";
     
     return 0;
 }
